@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+body {
+    background-image : url("body_bg.jpg");
+}
+
+#navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0px 0px 0px 10px;
+    overflow: hidden;
+    background-color: #333;
+    border-radius: 40px;
+}
+
+#navbar li {
+    float: left;
+    color: white;
+    margin: 0px 20px 0px 20px;
+}
+
+.navtabs {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    text-decoration: none;
+    align-self: center;
+}
+
+.navtabs:hover {
+    background-color: #111;
+}
+
+#infobox {
+    position:absolute;
+    top: 100px;
+    left: 40px;
+    width:1200px;
+    height:450px;
+    background-color: white;
+    overflow: scroll;
+}
+
+
+/* ################################################################## */
+
+.container {
+  padding: 16px;
+}
+
+input[type=text], input[type=password], input[type=tel], input[type=date], select {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.form {
+    float: center;
+    text-align: center;
+}
+
+/* ################################################################## */
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header>
+    <ul id="navbar">
+      <li>
+        <h1>Employee Management</h1>
+      </li>
+      <li><a class="navtabs" href="{{ url_for('home') }}">HOME</a></li>
+      <li><a class="navtabs" href="{{ url_for('login') }}">LOGIN</a></li>
+      <li><a class="navtabs" href="{{ url_for('admin') }}">ADMIN</a></li>
+      <li><a class="navtabs" href="{{ url_for('register') }}">REGISTER</a></li>
+    </ul>
+  </header>
+  <div id="infobox">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form class="form" method="post">
+      <div class="container">
+        <h1>Registration Form</h1>
+        <br>
+
+        <label for="FirstName"><b>FirstName</b></label><br>
+        <input type="text" placeholder="Enter FirstName" name="FirstName" required><br><br>
+
+        <label for="LastName"><b>LastName</b></label><br>
+        <input type="text" placeholder="Enter LastName" name="LastName" required><br><br>
+
+        <label for="Email"><b>Email</b></label><br>
+        <input type="text" placeholder="Enter Email" name="Email" required><br><br>
+
+        <label for="DateOfBirth"><b>DateOfBirth</b></label><br>
+        <input type="date" name="DateOfBirth" required><br><br>
+
+        <label for="Mobile"><b>Mobile</b></label><br>
+        <input type="text" placeholder="Enter Mobile" name="Mobile" required><br><br>
+
+        <label for="Address"><b>Address</b></label><br>
+        <input type="text" placeholder="Enter Address" name="Address" required><br><br>
+
+        <label for="Role"><b>Role</b></label><br>
+        <select name="Role">
+          <option value="Admin">Admin</option>
+          <option value="User">User</option>
+        </select><br><br>
+
+        <label for="Password"><b>Password</b></label><br>
+        <input type="password" placeholder="Enter Password" name="Password" required><br><br>
+
+        <label for="Confirm Password"><b>Confirm Password</b></label><br>
+        <input type="password" placeholder="Enter Password" name="Re_Password" required><br><br>
+
+
+
+        <button type="submit">Register</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+
+</html>

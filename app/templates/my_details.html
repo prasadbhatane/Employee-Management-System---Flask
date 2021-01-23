@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Details</title>
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header>
+    <ul id="navbar">
+      <li>
+        <h1>Employee Management</h1>
+      </li>
+      <li><a class="navtabs" href="{{ url_for('home') }}">LOGOUT</a></li>
+    </ul>
+  </header>
+  <div id="infobox">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <div class="form">
+      <h2> My Details </h2><br>
+
+      <h3>FirstName : {{ FirstName }}</h3>
+      <h3>LastName : {{ LastName }}</h3>
+      <h3>Email : {{ Email }}</h3>
+      <h3>DateOfBirth : {{ DateOfBirth }}</h3>
+      <h3>Mobile : {{ Mobile }}</h3>
+      <h3>Address : {{ Address }}</h3>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

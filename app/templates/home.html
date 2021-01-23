@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header>
+    <ul id="navbar">
+      <li>
+        <h1>Employee Management</h1>
+      </li>
+      <li><a class="navtabs" href="{{ url_for('home') }}">HOME</a></li>
+      <li><a class="navtabs" href="{{ url_for('login') }}">LOGIN</a></li>
+      <li><a class="navtabs" href="{{ url_for('admin') }}">ADMIN</a></li>
+      <li><a class="navtabs" href="{{ url_for('register') }}">REGISTER</a></li>
+    </ul>
+  </header>
+  <div id="infobox">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <img class="form" src="/static/em.png" height="400px" width="1000px">
+  </div>
+
+
+</body>
+
+</html>

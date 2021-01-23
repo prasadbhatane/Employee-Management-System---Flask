@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>All Details</title>
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header>
+    <ul id="navbar">
+      <li>
+        <h1>Employee Management</h1>
+      </li>
+      <li><a class="navtabs" href="{{ url_for('home') }}">LOGOUT</a></li>
+      <li>
+
+      </li>
+    </ul>
+  </header>
+  <div id="infobox">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <div class="form">
+      <form action="{{ url_for('all_details') }}" method="post">
+        <label for="FirstName"><b>FirstName</b></label>
+        <input type="text" placeholder="Enter FirstName" name="FirstName" , value=""><br>
+        <label for="LastName"><b>LastName</b></label>
+        <input type="text" placeholder="Enter LastName" name="LastName" , value=""><br>
+        <label for="Address"><b>Address</b></label>
+        <input type="text" placeholder="Enter Address" name="Address" , value=""><br>
+
+        <input type="hidden" name="admin_email" , value="{{ admin_email }}"><br>
+        <input type="hidden" name="admin_password" , value="{{ admin_password }}"><br>
+
+        <button type="submit">Search</button>
+        <br>
+      </form>
+      <table>
+        <h2>All Employees</h2>
+        <tr>
+          <td>
+            <h3>FirstName</h3>
+          </td>
+          <td>
+            <h3>LastName</h3>
+          </td>
+          <td>
+            <h3>Email</h3>
+          </td>
+          <td>
+            <h3>Details</h3>
+          </td>
+          <td>
+            <h3>Edit</h3>
+          </td>
+          <td>
+            <h3>Delete</h3>
+          </td>
+        </tr>
+        {% for em in employees %}
+        <tr>
+          <td>{{em.FirstName}}</td>
+          <td>{{em.LastName}}</td>
+          <td>{{em.Email}}</td>
+          <td><a href="{{ url_for('view', Email=em.Email, FirstName=em.FirstName, LastName=em.LastName, DateOfBirth=em.DateOfBirth, Mobile=em.Mobile, Address=em.Address) }}">View</a></td>
+          <td><a href="{{ url_for('edit', Email=em.Email, FirstName=em.FirstName, LastName=em.LastName, DateOfBirth=em.DateOfBirth, Mobile=em.Mobile, Address=em.Address) }}">Click here to Edit</a></td>
+          <td><a href="{{ url_for('delete', Email=em.Email, admin_email=admin_email, admin_password=admin_password) }}">Click here to Delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

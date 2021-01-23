@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header>
+    <ul id="navbar">
+      <li>
+        <h1>Employee Management</h1>
+      </li>
+      <li><a class="navtabs" href="{{ url_for('home') }}">HOME</a></li>
+      <li><a class="navtabs" href="{{ url_for('login') }}">LOGIN</a></li>
+      <li><a class="navtabs" href="{{ url_for('admin') }}">ADMIN</a></li>
+      <li><a class="navtabs" href="{{ url_for('register') }}">REGISTER</a></li>
+    </ul>
+  </header>
+  <div id="infobox">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form class="form" method="post">
+      <div class="container">
+        <h1>Login</h1>
+        <br>
+
+        <label for="Email"><b>Email</b></label>
+        <br>
+        <input type="text" placeholder="Enter Email" name="Email" required>
+        <br><br>
+        <label for="Password"><b>Password</b></label>
+        <br>
+        <input type="password" placeholder="Enter Password" name="Password" required>
+        <br><br>
+        <button type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+
+</html>
